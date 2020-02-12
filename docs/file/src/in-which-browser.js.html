@@ -8,7 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
   <script src="script/manual.js"></script>
-<meta name="description" content="query string maintainer"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="in-which-browser"><meta property="twitter:description" content="query string maintainer"></head>
+<meta name="description" content="Detect browser user agent"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="in-which-browser"><meta property="twitter:description" content="Detect browser user agent"></head>
 <body class="layout-container" data-ice="rootContainer">
 
 <header>
@@ -47,11 +47,14 @@ import {
 
 import isWeappWebview from &apos;./weapp.js&apos;;
 
+// UA
 var ua = window.navigator.userAgent;
 var platform = window.navigator.platform;
 
+// Zepto detect
 var result = new Detect(ua, platform);
 
+// extends
 result.browser.wechat = isWechatWebview(ua);
 result.browser.wechatVersion = getWechatVersion(ua);
 result.browser.weapp = isWeappWebview(ua);
