@@ -41,7 +41,7 @@ console.log(inWhichBrowser.browser.weapp);
 
 ## APIDoc
 
-* [ESDoc](https://doc.esdoc.org/github.com/ufologist/in-which-browser/)
+* [ESDoc](https://raw.githack.com/ufologist/in-which-browser/master/docs/index.html)
 
 ## 为什么造轮子
 

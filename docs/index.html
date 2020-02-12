@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">Home | in-which-browser</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="query string maintainer"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="in-which-browser"><meta property="twitter:description" content="query string maintainer"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/ufologist/in-which-browser"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isWeappWebview">isWeappWebview</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWechatVersion">getWechatVersion</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isWechatWebview">isWechatWebview</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-detect">detect</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="in-which-browser">in-which-browser</h1><p><a href="https://npmjs.org/package/in-which-browser"><img src="https://img.shields.io/npm/v/in-which-browser.svg?style=flat-square" alt="NPM version"></a> <a href="https://travis-ci.org/ufologist/in-which-browser"><img src="https://travis-ci.org/ufologist/in-which-browser.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/github/ufologist/in-which-browser"><img src="https://coveralls.io/repos/github/ufologist/in-which-browser/badge.svg?branch=master" alt="Coverage Status"></a> <a href="https://snyk.io/test/npm/in-which-browser"><img src="https://snyk.io/test/npm/in-which-browser/badge.svg" alt="Known Vulnerabilities"></a> <a href="https://github.com/ufologist/in-which-browser/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/CHANGE-LOG-blue.svg?style=flat-square" alt="changelog"></a> <a href="https://github.com/ufologist/in-which-browser/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ufologist/in-which-browser.svg" alt="license"></a></p>
+<p><a href="https://npmjs.com/package/in-which-browser"><img src="https://nodei.co/npm/in-which-browser.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="npm-image"></a></p>
+<p>Detect browser user agent</p>
+<ul>
+<li><a href="https://zeptojs.com/#detect">Zepto.js Detect methods</a><ul>
+<li><code>inWhichBrowser.os</code></li>
+<li><code>inWhichBrowser.browser</code></li>
+</ul>
+</li>
+<li>extends<ul>
+<li><code>inWhichBrowser.browser.wechat</code></li>
+<li><code>inWhichBrowser.browser.wechatVersion</code></li>
+<li><code>inWhichBrowser.browser.weapp</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="example">Example</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">import inWhichBrowser from &apos;in-which-browser&apos;;
+
+console.log(inWhichBrowser.os.ios);
+console.log(inWhichBrowser.os.android);
+
+console.log(inWhichBrowser.browser.wechat);
+console.log(inWhichBrowser.browser.wechatVersion);
+console.log(inWhichBrowser.browser.weapp);</code>
+</code></pre>
+<h2 id="apidoc">APIDoc</h2><ul>
+<li><a href="https://doc.esdoc.org/github.com/ufologist/in-which-browser/">ESDoc</a></li>
+</ul>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x9020;&#x8F6E;&#x5B50;">&#x4E3A;&#x4EC0;&#x4E48;&#x9020;&#x8F6E;&#x5B50;</h2><p>&#x627E;&#x4E86;&#x5F88;&#x591A;&#x5E93;&#x90FD;&#x4E0D;&#x592A;&#x597D;&#x4F7F;, &#x60F3;&#x5230; <code>Zepto</code> &#x5176;&#x5B9E;&#x5DF2;&#x7ECF;&#x5F88;&#x6210;&#x719F;&#x4E86;, &#x56E0;&#x6B64;&quot;&#x62BD;&#x53D6;&quot;&#x4E86;&#x5B83;&#x7684; <code>detect</code> &#x6A21;&#x5757;, &#x518D;&#x6269;&#x5C55;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x6C42;</p>
+<p>&#x4F8B;&#x5982;</p>
+<ul>
+<li><a href="https://github.com/hotoo/detector">detector</a></li>
+<li><a href="https://github.com/lancedikson/bowser">bowser</a></li>
+<li><a href="https://github.com/faisalman/ua-parser-js">UAParser.js</a></li>
+</ul>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

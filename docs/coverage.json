@@ -1,0 +1,32 @@
+{
+  "coverage": "50%",
+  "expectCount": 6,
+  "actualCount": 3,
+  "files": {
+    "src/in-which-browser.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        10,
+        11
+      ]
+    },
+    "src/weapp.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/wechat.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/zepto-detect.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        6
+      ]
+    }
+  }
+}
