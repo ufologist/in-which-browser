@@ -12,11 +12,11 @@ var ua = window.navigator.userAgent;
 var platform = window.navigator.platform;
 
 // Zepto detect
-var result = new Detect(ua, platform);
+var $ = new Detect(ua, platform);
 
 // extends
-result.browser.wechat = isWechatWebview(ua);
-result.browser.wechatVersion = getWechatVersion(ua);
-result.browser.weapp = isWeappWebview(ua);
+$.browser.wechat = isWechatWebview(ua);
+$.browser.wechatVersion = getWechatVersion(ua);
+$.browser.weapp = isWeappWebview(ua);
 
-export default result;
+export default $;
