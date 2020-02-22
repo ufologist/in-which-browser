@@ -51,3 +51,4 @@ console.log(inWhichBrowser.browser.weapp);
 * [detector](https://github.com/hotoo/detector)
 * [bowser](https://github.com/lancedikson/bowser)
 * [UAParser.js](https://github.com/faisalman/ua-parser-js)
+* [Platform.js](https://github.com/bestiejs/platform.js)
