@@ -85,6 +85,28 @@ function getWechatVersion(ua) {
 }
 
 /**
+ * Is it Wxwork webview
+ * 
+ * @param {string} ua 
+ * @return {boolean}
+ * @see https://open.work.weixin.qq.com/api/doc/90000/90139/90315#%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%9A%84UA
+ */
+function isWxworkWebview(ua) {
+  return /wxwork/i.test(ua);
+}
+/**
+ * Get wxwork version
+ * 
+ * @param {string} ua 
+ * @return {string} e.g.: 2.2.0 or empty string
+ */
+
+function getWxworkVersion(ua) {
+  var wxworkVersionResult = ua.match(/\bwxwork\/([\d.]+)/i);
+  return wxworkVersionResult ? wxworkVersionResult[1] : '';
+}
+
+/**
  * Is it weapp webview
  * 
  * 1. 在网页内可通过window.__wxjs_environment变量判断是否在小程序环境，建议在WeixinJSBridgeReady回调中使用，也可以使用JSSDK 1.3.2提供的getEnv接口。
@@ -101,10 +123,12 @@ function isWeappWebview(ua) {
 var ua = window.navigator.userAgent;
 var platform = window.navigator.platform; // Zepto detect
 
-var result = new detect(ua, platform); // extends
+var $ = new detect(ua, platform); // extends
 
-result.browser.wechat = isWechatWebview(ua);
-result.browser.wechatVersion = getWechatVersion(ua);
-result.browser.weapp = isWeappWebview(ua);
+$.browser.wechat = isWechatWebview(ua);
+$.browser.wechatVersion = getWechatVersion(ua);
+$.browser.weapp = isWeappWebview(ua);
+$.browser.wxwork = isWxworkWebview(ua);
+$.browser.wxworkVersion = getWxworkVersion(ua);
 
-export default result;
+export default $;

@@ -5,6 +5,11 @@ import {
     getWechatVersion
 } from './wechat.js';
 
+import {
+    isWxworkWebview,
+    getWxworkVersion
+} from './wxwork.js';
+
 import isWeappWebview from './weapp.js';
 
 // UA
@@ -17,6 +22,10 @@ var $ = new Detect(ua, platform);
 // extends
 $.browser.wechat = isWechatWebview(ua);
 $.browser.wechatVersion = getWechatVersion(ua);
+
 $.browser.weapp = isWeappWebview(ua);
+
+$.browser.wxwork = isWxworkWebview(ua);
+$.browser.wxworkVersion = getWxworkVersion(ua);
 
 export default $;

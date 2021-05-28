@@ -12,6 +12,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "in-which-browser/src/wxwork.js~getwxworkversion",
+    "function/index.html#static-function-getWxworkVersion",
+    "<span>getWxworkVersion</span> <span class=\"search-result-import-path\">in-which-browser/src/wxwork.js</span>",
+    "function"
+  ],
+  [
     "in-which-browser/src/weapp.js~isweappwebview",
     "function/index.html#static-function-isWeappWebview",
     "<span>isWeappWebview</span> <span class=\"search-result-import-path\">in-which-browser/src/weapp.js</span>",
@@ -21,6 +27,12 @@ window.esdocSearchIndex = [
     "in-which-browser/src/wechat.js~iswechatwebview",
     "function/index.html#static-function-isWechatWebview",
     "<span>isWechatWebview</span> <span class=\"search-result-import-path\">in-which-browser/src/wechat.js</span>",
+    "function"
+  ],
+  [
+    "in-which-browser/src/wxwork.js~iswxworkwebview",
+    "function/index.html#static-function-isWxworkWebview",
+    "<span>isWxworkWebview</span> <span class=\"search-result-import-path\">in-which-browser/src/wxwork.js</span>",
     "function"
   ],
   [
@@ -321,6 +333,12 @@ window.esdocSearchIndex = [
     "src/wechat.js",
     "file/src/wechat.js.html",
     "src/wechat.js",
+    "file"
+  ],
+  [
+    "src/wxwork.js",
+    "file/src/wxwork.js.html",
+    "src/wxwork.js",
     "file"
   ],
   [

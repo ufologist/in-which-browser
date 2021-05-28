@@ -1,14 +1,14 @@
 {
-  "coverage": "50%",
-  "expectCount": 6,
-  "actualCount": 3,
+  "coverage": "62.5%",
+  "expectCount": 8,
+  "actualCount": 5,
   "files": {
     "src/in-which-browser.js": {
       "expectCount": 2,
       "actualCount": 0,
       "undocumentLines": [
-        11,
-        12
+        16,
+        17
       ]
     },
     "src/weapp.js": {
@@ -17,6 +17,11 @@
       "undocumentLines": []
     },
     "src/wechat.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/wxwork.js": {
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []

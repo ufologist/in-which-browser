@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/in-which-browser.js",
-    "content": "import Detect from './zepto-detect.js';\r\n\r\nimport {\r\n    isWechatWebview,\r\n    getWechatVersion\r\n} from './wechat.js';\r\n\r\nimport isWeappWebview from './weapp.js';\r\n\r\n// UA\r\nvar ua = window.navigator.userAgent;\r\nvar platform = window.navigator.platform;\r\n\r\n// Zepto detect\r\nvar result = new Detect(ua, platform);\r\n\r\n// extends\r\nresult.browser.wechat = isWechatWebview(ua);\r\nresult.browser.wechatVersion = getWechatVersion(ua);\r\nresult.browser.weapp = isWeappWebview(ua);\r\n\r\nexport default result;",
+    "content": "import Detect from './zepto-detect.js';\r\n\r\nimport {\r\n    isWechatWebview,\r\n    getWechatVersion\r\n} from './wechat.js';\r\n\r\nimport {\r\n    isWxworkWebview,\r\n    getWxworkVersion\r\n} from './wxwork.js';\r\n\r\nimport isWeappWebview from './weapp.js';\r\n\r\n// UA\r\nvar ua = window.navigator.userAgent;\r\nvar platform = window.navigator.platform;\r\n\r\n// Zepto detect\r\nvar $ = new Detect(ua, platform);\r\n\r\n// extends\r\n$.browser.wechat = isWechatWebview(ua);\r\n$.browser.wechatVersion = getWechatVersion(ua);\r\n\r\n$.browser.weapp = isWeappWebview(ua);\r\n\r\n$.browser.wxwork = isWxworkWebview(ua);\r\n$.browser.wxworkVersion = getWxworkVersion(ua);\r\n\r\nexport default $;",
     "static": true,
     "longname": "E:/_Cloud/Github/in-which-browser/src/in-which-browser.js",
     "access": "public",
@@ -586,7 +586,7 @@
     "importPath": "in-which-browser/src/in-which-browser.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 11,
+    "lineNumber": 16,
     "undocument": true,
     "type": {
       "types": [
@@ -607,7 +607,7 @@
     "importPath": "in-which-browser/src/in-which-browser.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 12,
+    "lineNumber": 17,
     "undocument": true,
     "type": {
       "types": [
@@ -755,6 +755,92 @@
   {
     "__docId__": 56,
     "kind": "file",
+    "name": "src/wxwork.js",
+    "content": "/**\r\n * Is it Wxwork webview\r\n * \r\n * @param {string} ua \r\n * @return {boolean}\r\n * @see https://open.work.weixin.qq.com/api/doc/90000/90139/90315#%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%9A%84UA\r\n */\r\nexport function isWxworkWebview(ua) {\r\n    return /wxwork/i.test(ua);\r\n}\r\n\r\n/**\r\n * Get wxwork version\r\n * \r\n * @param {string} ua \r\n * @return {string} e.g.: 2.2.0 or empty string\r\n */\r\nexport function getWxworkVersion(ua) {\r\n    var wxworkVersionResult = ua.match(/\\bwxwork\\/([\\d.]+)/i);\r\n    return wxworkVersionResult ? wxworkVersionResult[1] : '';\r\n}",
+    "static": true,
+    "longname": "E:/_Cloud/Github/in-which-browser/src/wxwork.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "isWxworkWebview",
+    "memberof": "src/wxwork.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/wxwork.js~isWxworkWebview",
+    "access": "public",
+    "export": true,
+    "importPath": "in-which-browser/src/wxwork.js",
+    "importStyle": "{isWxworkWebview}",
+    "description": "Is it Wxwork webview",
+    "see": [
+      "https://open.work.weixin.qq.com/api/doc/90000/90139/90315#%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%9A%84UA"
+    ],
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "ua",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "getWxworkVersion",
+    "memberof": "src/wxwork.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/wxwork.js~getWxworkVersion",
+    "access": "public",
+    "export": true,
+    "importPath": "in-which-browser/src/wxwork.js",
+    "importStyle": "{getWxworkVersion}",
+    "description": "Get wxwork version",
+    "lineNumber": 18,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "ua",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "e.g.: 2.2.0 or empty string"
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "file",
     "name": "src/zepto-detect.js",
     "content": "//     Zepto.js\r\n//     (c) 2010-2016 Thomas Fuchs\r\n//     Zepto.js may be freely distributed under the MIT license.\r\n// https://github.com/madrobby/zepto/blob/601372ac4e3f98d502c707bf841589fbc48a3a7d/src/detect.js\r\n\r\n  function detect(ua, platform){\r\n    var os = this.os = {}, browser = this.browser = {},\r\n      webkit = ua.match(/Web[kK]it[\\/]{0,1}([\\d.]+)/),\r\n      android = ua.match(/(Android);?[\\s\\/]+([\\d.]+)?/),\r\n      osx = !!ua.match(/\\(Macintosh\\; Intel /),\r\n      ipad = ua.match(/(iPad).*OS\\s([\\d_]+)/),\r\n      ipod = ua.match(/(iPod)(.*OS\\s([\\d_]+))?/),\r\n      iphone = !ipad && ua.match(/(iPhone\\sOS)\\s([\\d_]+)/),\r\n      webos = ua.match(/(webOS|hpwOS)[\\s\\/]([\\d.]+)/),\r\n      win = /Win\\d{2}|Windows/.test(platform),\r\n      wp = ua.match(/Windows Phone ([\\d.]+)/),\r\n      touchpad = webos && ua.match(/TouchPad/),\r\n      kindle = ua.match(/Kindle\\/([\\d.]+)/),\r\n      silk = ua.match(/Silk\\/([\\d._]+)/),\r\n      blackberry = ua.match(/(BlackBerry).*Version\\/([\\d.]+)/),\r\n      bb10 = ua.match(/(BB10).*Version\\/([\\d.]+)/),\r\n      rimtabletos = ua.match(/(RIM\\sTablet\\sOS)\\s([\\d.]+)/),\r\n      playbook = ua.match(/PlayBook/),\r\n      chrome = ua.match(/Chrome\\/([\\d.]+)/) || ua.match(/CriOS\\/([\\d.]+)/),\r\n      firefox = ua.match(/Firefox\\/([\\d.]+)/),\r\n      firefoxos = ua.match(/\\((?:Mobile|Tablet); rv:([\\d.]+)\\).*Firefox\\/[\\d.]+/),\r\n      ie = ua.match(/MSIE\\s([\\d.]+)/) || ua.match(/Trident\\/[\\d](?=[^\\?]+).*rv:([0-9.].)/),\r\n      webview = !chrome && ua.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),\r\n      safari = webview || ua.match(/Version\\/([\\d.]+)([^S](Safari)|[^M]*(Mobile)[^S]*(Safari))/)\r\n\r\n    // Todo: clean this up with a better OS/browser seperation:\r\n    // - discern (more) between multiple browsers on android\r\n    // - decide if kindle fire in silk mode is android or not\r\n    // - Firefox on Android doesn't specify the Android version\r\n    // - possibly devide in os, device and browser hashes\r\n\r\n    if (browser.webkit = !!webkit) browser.version = webkit[1]\r\n\r\n    if (android) os.android = true, os.version = android[2]\r\n    if (iphone && !ipod) os.ios = os.iphone = true, os.version = iphone[2].replace(/_/g, '.')\r\n    if (ipad) os.ios = os.ipad = true, os.version = ipad[2].replace(/_/g, '.')\r\n    if (ipod) os.ios = os.ipod = true, os.version = ipod[3] ? ipod[3].replace(/_/g, '.') : null\r\n    if (wp) os.wp = true, os.version = wp[1]\r\n    if (webos) os.webos = true, os.version = webos[2]\r\n    if (touchpad) os.touchpad = true\r\n    if (blackberry) os.blackberry = true, os.version = blackberry[2]\r\n    if (bb10) os.bb10 = true, os.version = bb10[2]\r\n    if (rimtabletos) os.rimtabletos = true, os.version = rimtabletos[2]\r\n    if (playbook) browser.playbook = true\r\n    if (kindle) os.kindle = true, os.version = kindle[1]\r\n    if (silk) browser.silk = true, browser.version = silk[1]\r\n    if (!silk && os.android && ua.match(/Kindle Fire/)) browser.silk = true\r\n    if (chrome) browser.chrome = true, browser.version = chrome[1]\r\n    if (firefox) browser.firefox = true, browser.version = firefox[1]\r\n    if (firefoxos) os.firefoxos = true, os.version = firefoxos[1]\r\n    if (ie) browser.ie = true, browser.version = ie[1]\r\n    if (safari && (osx || os.ios || win)) {\r\n      browser.safari = true\r\n      if (!os.ios) browser.version = safari[1]\r\n    }\r\n    if (webview) browser.webview = true\r\n\r\n    os.tablet = !!(ipad || playbook || (android && !ua.match(/Mobile/)) ||\r\n      (firefox && ua.match(/Tablet/)) || (ie && !ua.match(/Phone/) && ua.match(/Touch/)))\r\n    os.phone  = !!(!os.tablet && !os.ipod && (android || iphone || webos || blackberry || bb10 ||\r\n      (chrome && ua.match(/Android/)) || (chrome && ua.match(/CriOS\\/([\\d.]+)/)) ||\r\n      (firefox && ua.match(/Mobile/)) || (ie && ua.match(/Touch/))))\r\n  }\r\n\r\nexport default detect;",
     "static": true,
@@ -764,7 +850,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 57,
+    "__docId__": 60,
     "kind": "function",
     "name": "detect",
     "memberof": "src/zepto-detect.js",
@@ -797,7 +883,7 @@
   },
   {
     "kind": "index",
-    "content": "# in-which-browser\r\n\r\n[![NPM version][npm-image]][npm-url] [![Build Status][ci-status-image]][ci-status-url] [![Coverage Status][coverage-status-image]][coverage-status-url] [![Known Vulnerabilities][vulnerabilities-status-image]][vulnerabilities-status-url] [![changelog][changelog-image]][changelog-url] [![license][license-image]][license-url]\r\n\r\n[vulnerabilities-status-image]: https://snyk.io/test/npm/in-which-browser/badge.svg\r\n[vulnerabilities-status-url]: https://snyk.io/test/npm/in-which-browser\r\n[ci-status-image]: https://travis-ci.org/ufologist/in-which-browser.svg?branch=master\r\n[ci-status-url]: https://travis-ci.org/ufologist/in-which-browser\r\n[coverage-status-image]: https://coveralls.io/repos/github/ufologist/in-which-browser/badge.svg?branch=master\r\n[coverage-status-url]: https://coveralls.io/github/ufologist/in-which-browser\r\n[npm-image]: https://img.shields.io/npm/v/in-which-browser.svg?style=flat-square\r\n[npm-url]: https://npmjs.org/package/in-which-browser\r\n[license-image]: https://img.shields.io/github/license/ufologist/in-which-browser.svg\r\n[license-url]: https://github.com/ufologist/in-which-browser/blob/master/LICENSE\r\n[changelog-image]: https://img.shields.io/badge/CHANGE-LOG-blue.svg?style=flat-square\r\n[changelog-url]: https://github.com/ufologist/in-which-browser/blob/master/CHANGELOG.md\r\n\r\n[![npm-image](https://nodei.co/npm/in-which-browser.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.com/package/in-which-browser)\r\n\r\nDetect browser user agent\r\n- [Zepto.js Detect methods](https://zeptojs.com/#detect)\r\n  - `inWhichBrowser.os`\r\n  - `inWhichBrowser.browser`\r\n- extends\r\n  - `inWhichBrowser.browser.wechat`\r\n  - `inWhichBrowser.browser.wechatVersion`\r\n  - `inWhichBrowser.browser.weapp`\r\n\r\n## Example\r\n\r\n```javascript\r\nimport inWhichBrowser from 'in-which-browser';\r\n\r\nconsole.log(inWhichBrowser.os.ios);\r\nconsole.log(inWhichBrowser.os.android);\r\n\r\nconsole.log(inWhichBrowser.browser.wechat);\r\nconsole.log(inWhichBrowser.browser.wechatVersion);\r\nconsole.log(inWhichBrowser.browser.weapp);\r\n```\r\n\r\n## APIDoc\r\n\r\n* [ESDoc](https://raw.githack.com/ufologist/in-which-browser/master/docs/index.html)\r\n\r\n## 为什么造轮子\r\n\r\n找了很多库都不太好使, 想到 `Zepto` 其实已经很成熟了, 因此\"抽取\"了它的 `detect` 模块, 再扩展自己的需求\r\n\r\n例如\r\n* [detector](https://github.com/hotoo/detector)\r\n* [bowser](https://github.com/lancedikson/bowser)\r\n* [UAParser.js](https://github.com/faisalman/ua-parser-js)",
+    "content": "# in-which-browser\r\n\r\n[![NPM version][npm-image]][npm-url] [![Build Status][ci-status-image]][ci-status-url] [![Coverage Status][coverage-status-image]][coverage-status-url] [![Known Vulnerabilities][vulnerabilities-status-image]][vulnerabilities-status-url] [![changelog][changelog-image]][changelog-url] [![license][license-image]][license-url]\r\n\r\n[vulnerabilities-status-image]: https://snyk.io/test/npm/in-which-browser/badge.svg\r\n[vulnerabilities-status-url]: https://snyk.io/test/npm/in-which-browser\r\n[ci-status-image]: https://travis-ci.org/ufologist/in-which-browser.svg?branch=master\r\n[ci-status-url]: https://travis-ci.org/ufologist/in-which-browser\r\n[coverage-status-image]: https://coveralls.io/repos/github/ufologist/in-which-browser/badge.svg?branch=master\r\n[coverage-status-url]: https://coveralls.io/github/ufologist/in-which-browser\r\n[npm-image]: https://img.shields.io/npm/v/in-which-browser.svg?style=flat-square\r\n[npm-url]: https://npmjs.org/package/in-which-browser\r\n[license-image]: https://img.shields.io/github/license/ufologist/in-which-browser.svg\r\n[license-url]: https://github.com/ufologist/in-which-browser/blob/master/LICENSE\r\n[changelog-image]: https://img.shields.io/badge/CHANGE-LOG-blue.svg?style=flat-square\r\n[changelog-url]: https://github.com/ufologist/in-which-browser/blob/master/CHANGELOG.md\r\n\r\n[![npm-image](https://nodei.co/npm/in-which-browser.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.com/package/in-which-browser)\r\n\r\nDetect browser user agent\r\n- [Zepto.js Detect methods](https://zeptojs.com/#detect)\r\n  - `inWhichBrowser.os`\r\n  - `inWhichBrowser.browser`\r\n- extends\r\n  - `inWhichBrowser.browser.wechat`\r\n  - `inWhichBrowser.browser.wechatVersion`\r\n  - `inWhichBrowser.browser.weapp`\r\n\r\n## Example\r\n\r\n```javascript\r\nimport inWhichBrowser from 'in-which-browser';\r\n\r\nconsole.log(inWhichBrowser.os.ios);\r\nconsole.log(inWhichBrowser.os.android);\r\n\r\nconsole.log(inWhichBrowser.browser.wechat);\r\nconsole.log(inWhichBrowser.browser.wechatVersion);\r\nconsole.log(inWhichBrowser.browser.weapp);\r\n```\r\n\r\n## APIDoc\r\n\r\n* [ESDoc](https://raw.githack.com/ufologist/in-which-browser/master/docs/index.html)\r\n\r\n## 为什么造轮子\r\n\r\n找了很多库都不太好使, 想到 `Zepto` 其实已经很成熟了, 因此\"抽取\"了它的 `detect` 模块, 再扩展自己的需求\r\n\r\n例如\r\n* [detector](https://github.com/hotoo/detector)\r\n* [bowser](https://github.com/lancedikson/bowser)\r\n* [UAParser.js](https://github.com/faisalman/ua-parser-js)\r\n* [Platform.js](https://github.com/bestiejs/platform.js)",
     "longname": "E:\\_Cloud\\Github\\in-which-browser\\README.md",
     "name": "./README.md",
     "static": true,

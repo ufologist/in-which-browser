@@ -10,5 +10,7 @@ describe('in-which-browser', function() {
         expect(inWhichBrowser.browser.wechat).toBeDefined();
         expect(inWhichBrowser.browser.wechatVersion).toBeDefined();
         expect(inWhichBrowser.browser.weapp).toBeDefined();
+        expect(inWhichBrowser.browser.wxwork).toBeDefined();
+        expect(inWhichBrowser.browser.wxworkVersion).toBeDefined();
     });
 });

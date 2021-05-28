@@ -32,6 +32,8 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isWeappWebview">isWeappWebview</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWechatVersion">getWechatVersion</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isWechatWebview">isWechatWebview</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWxworkVersion">getWxworkVersion</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isWxworkWebview">isWxworkWebview</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-detect">detect</a></span></span></li>
 </ul>
 </div>
@@ -45,6 +47,11 @@ import {
     getWechatVersion
 } from &apos;./wechat.js&apos;;
 
+import {
+    isWxworkWebview,
+    getWxworkVersion
+} from &apos;./wxwork.js&apos;;
+
 import isWeappWebview from &apos;./weapp.js&apos;;
 
 // UA
@@ -52,14 +59,18 @@ var ua = window.navigator.userAgent;
 var platform = window.navigator.platform;
 
 // Zepto detect
-var result = new Detect(ua, platform);
+var $ = new Detect(ua, platform);
 
 // extends
-result.browser.wechat = isWechatWebview(ua);
-result.browser.wechatVersion = getWechatVersion(ua);
-result.browser.weapp = isWeappWebview(ua);
+$.browser.wechat = isWechatWebview(ua);
+$.browser.wechatVersion = getWechatVersion(ua);
 
-export default result;</code></pre>
+$.browser.weapp = isWeappWebview(ua);
+
+$.browser.wxwork = isWxworkWebview(ua);
+$.browser.wxworkVersion = getWxworkVersion(ua);
+
+export default $;</code></pre>
 
 </div>
 

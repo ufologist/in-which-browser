@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/weapp.js | in-which-browser</title>
+  <title data-ice="title">src/wxwork.js | in-which-browser</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -39,19 +39,27 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/weapp.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">src/wxwork.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * Is it weapp webview
- * 
- * 1. &#x5728;&#x7F51;&#x9875;&#x5185;&#x53EF;&#x901A;&#x8FC7;window.__wxjs_environment&#x53D8;&#x91CF;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5728;&#x5C0F;&#x7A0B;&#x5E8F;&#x73AF;&#x5883;&#xFF0C;&#x5EFA;&#x8BAE;&#x5728;WeixinJSBridgeReady&#x56DE;&#x8C03;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;JSSDK 1.3.2&#x63D0;&#x4F9B;&#x7684;getEnv&#x63A5;&#x53E3;&#x3002;
- * 2. &#x4ECE;&#x5FAE;&#x4FE1;7.0.0&#x5F00;&#x59CB;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5224;&#x65AD;userAgent&#x4E2D;&#x5305;&#x542B;miniProgram&#x5B57;&#x6837;&#x6765;&#x5224;&#x65AD;&#x5C0F;&#x7A0B;&#x5E8F;web-view&#x73AF;&#x5883;
+ * Is it Wxwork webview
  * 
  * @param {string} ua 
  * @return {boolean}
- * @see https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html
+ * @see https://open.work.weixin.qq.com/api/doc/90000/90139/90315#%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%9A%84UA
  */
-export default function isWeappWebview(ua) {
-    return /miniprogram/i.test(ua) || window.__wxjs_environment === &apos;miniprogram&apos;;
+export function isWxworkWebview(ua) {
+    return /wxwork/i.test(ua);
+}
+
+/**
+ * Get wxwork version
+ * 
+ * @param {string} ua 
+ * @return {string} e.g.: 2.2.0 or empty string
+ */
+export function getWxworkVersion(ua) {
+    var wxworkVersionResult = ua.match(/\bwxwork\/([\d.]+)/i);
+    return wxworkVersionResult ? wxworkVersionResult[1] : &apos;&apos;;
 }</code></pre>
 
 </div>
