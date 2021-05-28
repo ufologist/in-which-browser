@@ -1,6 +1,6 @@
 {
   "name": "in-which-browser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Detect browser user agent",
   "main": "dist/in-which-browser.common.js",
   "module": "dist/in-which-browser.esm.js",
