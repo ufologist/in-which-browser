@@ -25,6 +25,8 @@ Detect browser user agent
   - `inWhichBrowser.browser.wechat`
   - `inWhichBrowser.browser.wechatVersion`
   - `inWhichBrowser.browser.weapp`
+  - `inWhichBrowser.browser.wxwork`
+  - `inWhichBrowser.browser.wxworkVersion`
 
 ## Example
 
@@ -37,6 +39,8 @@ console.log(inWhichBrowser.os.android);
 console.log(inWhichBrowser.browser.wechat);
 console.log(inWhichBrowser.browser.wechatVersion);
 console.log(inWhichBrowser.browser.weapp);
+console.log(inWhichBrowser.browser.wxwork);
+console.log(inWhichBrowser.browser.wxworkVersion);
 ```
 
 ## APIDoc
