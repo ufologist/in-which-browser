@@ -56,3 +56,5 @@ console.log(inWhichBrowser.browser.wxworkVersion);
 * [bowser](https://github.com/lancedikson/bowser)
 * [UAParser.js](https://github.com/faisalman/ua-parser-js)
 * [Platform.js](https://github.com/bestiejs/platform.js)
+* [@jsdevtools/host-environment](https://github.com/JS-DevTools/host-environment)
+* [browser-report](https://github.com/keithws/browser-report)
